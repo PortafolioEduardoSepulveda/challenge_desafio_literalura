@@ -82,13 +82,23 @@ public class Autor {
         int contador = 0;
         contador = this.getLibros().size();
         for(int x = 0; x < contador ; x++){
-            imprime_libro += this.getLibros().get(x).getTitulo()+",";
+            if(x == 0){
+                imprime_libro += this.getLibros().get(x).getTitulo();
+            }else{
+                if(x == contador-1 ){
+                    imprime_libro += this.getLibros().get(x).getTitulo();
+                }else{
+                    imprime_libro += this.getLibros().get(x).getTitulo()+",";
+                }
+
+            }
+
         }
         var imprime_autor = " \n"+
                 "Autor: "+nombre+" \n"+
                 "Fecha Nacimiento: "+fecha_nacimiento+" \n"+
                 "Fecha Fallecimiento: "+fecha_fallecimiento +" \n"+
-                "libros : "+imprime_libro+" \n";
+                "libros : ["+imprime_libro+"] \n";
         return imprime_autor;
     }
 
